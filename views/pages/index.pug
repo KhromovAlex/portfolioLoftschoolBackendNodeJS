@@ -1,0 +1,93 @@
+extends ../layout-welcome
+
+block vars
+    - var title = "Главная страница";
+
+block content
+    .welcome-page#welcome-page
+        .parallax#parallax
+            - for (var i=1;i<10;i++)
+                .parallax__layer
+                    img(src=`img/parallax/Layer ${i}.png`).parallax__img
+        header.header-welcome#header-welcome
+            button.link-login#link-login-welcome(type="button")
+                span.text-link#text-link Авторизоваться
+        .flip-container
+            .flipper#flipper-welcome
+                section.welcome-content.front
+                    .welcome-content__avatar
+                        .avatar
+                            img.avatar__img(src="img/welcome/ava.jpg" alt="avatar")
+                    .welcome-content__user-name Александр Хромов
+                    .welcome-content__desc Личный сайт веб разработчика
+                    .welcome-content__social
+                        .social
+                            ul.social__list
+                                li.social__item
+                                    a.social__link.social__link_welcome(href="https://vk.com/sashko_khr" target="_blank")
+                                        svg.social__svg
+                                            use(xlink:href="img/sprite.svg#icon-vk")
+                                li.social__item
+                                    a.social__link.social__link_welcome(href="https://github.com/KhromovAlex" target="_blank")
+                                        svg.social__svg
+                                            use(xlink:href="img/sprite.svg#icon-github")
+                                li.social__item
+                                    a.social__link.social__link_welcome(href="https://www.instagram.com/" target="_blank")
+                                        svg.social__svg
+                                            use(xlink:href="img/sprite.svg#icon-in")
+                    nav.welcome-nav
+                        ul.welcome-nav__list
+                            li.welcome-nav__item
+                                a.welcome-nav__link(href="works")
+                                    span.text-link Мои работы
+                            li.welcome-nav__item
+                                a.welcome-nav__link(href="about")
+                                    span.text-link Обо мне
+                            li.welcome-nav__item
+                                a.welcome-nav__link(href="blog")
+                                    span.text-link Блог
+
+                section.welcome-content.back.welcome-auth
+                    .welcome-auth__title
+                        .subtitle Авторизируйтесь
+                    if (msg)
+                        .status-login= msg
+                    form#form-auth.welcome-auth__form(action="/" method="POST")
+                        .welcome-auth__login-wrap
+                            .welcome-auth__input-bg
+                                svg.welcome-auth__svg-input
+                                    use(xlink:href="img/sprite.svg#icon-login")
+                            input#auth-login.welcome-auth__input.welcome-auth__login(name="login" type="text" placeholder="Логин")
+                        .welcome-auth__pass-wrap
+                            .welcome-auth__input-bg
+                                svg.welcome-auth__svg-input
+                                    use(xlink:href="img/sprite.svg#icon-password")
+                            input#auth-password.welcome-auth__input.welcome-auth__pass(name="password" type="password" placeholder="Пароль")
+                        .welcome-auth__checkbox-wrap
+                            input.welcome-auth__checkbox(type="checkbox" id="checkbox-auth" name="checkAuth" value="yes")
+                            label.welcome-auth__checkbox-label(for="checkbox-auth") Я человек
+                                .welcome-auth__checkbox-block
+                                    svg.welcome-auth__checkbox-svg
+                                        use(xlink:href="img/sprite.svg#icon-check")
+                        .welcome-auth__radio-text.text-content Вы точно не робот?
+                        .welcome-auth__radio-wrap
+                            .welcome-auth__radio-item
+                                input.welcome-auth__radio(type="radio" id="radio-auth-1" name="radioAuth" value="yes")
+                                label.welcome-auth__radio-label(for="radio-auth-1") Да
+                                    .welcome-auth__radio-block
+                            .welcome-auth__radio-item
+                                input.welcome-auth__radio(type="radio" id="radio-auth-2" name="radioAuth" value="no")
+                                label.welcome-auth__radio-label(for="radio-auth-2") Не уверен
+                                    .welcome-auth__radio-block
+                        nav.welcome-nav
+                            ul.welcome-nav__list
+                                li.welcome-nav__item.welcome-nav__link_auth
+                                    button.welcome-nav__link.welcome-nav__link_auth#go-home-welcome(type="button")
+                                        span.text-link На главную
+                                li.welcome-nav__item.welcome-nav__link_auth
+                                    button.welcome-nav__link.welcome-nav__link_auth(type="submit")
+                                        span.text-link Вход
+        footer.footer-welcome
+            .footer-welcome__copyright
+                .copyright-welcome.
+                        © Александр Хромов | создано с любовью в LoftSchool | 2017

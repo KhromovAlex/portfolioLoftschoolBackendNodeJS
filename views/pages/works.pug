@@ -1,0 +1,97 @@
+extends ../layout
+
+block vars
+    - var title = "Мои работы";
+
+block header
+    include ../section/header
+
+block content
+    section.works
+        .works__top
+            .works__title
+                h2.title#first-section мои работы
+        .works__slider
+            .slider__info
+                ul.slider-info__list
+                    if (slides)
+                        each val, index in slides
+                            li.slider-info__item
+                                .slider__title
+                                    h3.subtitle= val.name
+                                .slider__skills
+                                    .slider__skills-text= val.tech
+                                .slider__link-wrap
+                                    a.slider__button(href="#")
+                                        .slider__button-svg
+                                        span.text-link Посмотреть сайт  
+            .slider__right-top
+                .slider-screen
+                    ul.carousel-main
+                        if (slides)
+                            each val, index in slides
+                                li.carousel-main__slide
+                                    img.slider-screen__img(src=`${val.picture}`)
+                                
+            .slider__btns
+                button.previous-slide.slider__link#previous
+                    ul.carousel-slides
+                        if (slides)
+                            each val, index in slides
+                                li.carousel-slides__slide.carousel-slides__slide-previous
+                                    img.slider__img(src=`${val.picture}`)                       
+                button.next-slide.slider__link#next
+                    ul.carousel-slides
+                        if (slides)
+                            each val, index in slides
+                                li.carousel-slides__slide.carousel-slides__slide-next
+                                    img.slider__img(src=`${val.picture}`)
+    section.feedback
+        .feedback__background
+            img.feedback__background-img(src="img/works/feedback.jpg")
+        .feedback__top
+            .feedback__top-title
+                h2.title что обо мне говорят
+        .feedback__reviews
+            ul.reviews-list
+                li.reviews__item
+                    .review__text
+                        .text-content.text-content_align Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
+                    .review-user
+                        .review-user__avatar
+                            img.review-user__img(src="img/works/user1.jpg")
+                        .review-user__desc
+                            .review-user__name
+                                .review-user__text.review-user__text_bold Ковальчук Дмитрий
+                            .review-user__position
+                                .review-user__text основатель Loftschool
+                li.reviews__item
+                    .review__text
+                        .text-content.text-content_align Этот код выдержит любые испытания. Только пожалуйста, не загружается сайт на слишком старых браузерах!
+                    .review-user
+                        .review-user__avatar
+                            img.review-user__img(src="img/works/user2.jpg")
+                        .review-user__desc
+                            .review-user__name
+                                .review-user__text.review-user__text_bold Сабанцев Владимир
+                            .review-user__position
+                                .review-user__text преподаватель
+        .feedback____blur-wrap
+            .feedback-blur
+            .feedback-form-wrap
+                form.feedback-form
+                    .feedback-form__title
+                        h3.subtitle связаться со мной
+                    .feedback-form__input
+                        input(name="username" type="text" placeholder="Имя").feedback-form__name
+                        input(name="email" type="email" placeholder="Еmail").feedback-form__email
+                        textarea(name="text" placeholder="Ваше сообщение").feedback-form__text
+                        .status-mail
+                    .feedback-form__buttons-wrap
+                        input(type="submit" value="Отправить").feedback-form__button
+                        input(type="reset" value="Очистить").feedback-form__button
+
+        .feedback-up
+            a.feedback-up__link(href="#")
+                svg.feedback-up__svg
+                    use(xlink:href="img/sprite.svg#icon-portf_arrow_up")

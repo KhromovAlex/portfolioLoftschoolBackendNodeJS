@@ -1,0 +1,35 @@
+header.header
+    .parallax-scroll
+        .parallax-scroll__layer
+            img.parallax-scroll__img(src="img/header/bg_for_parallax.jpg")
+    .header__top
+        .header__social
+            .social
+                ul.social__list
+                    li.social__item
+                        a.social__link(href="https://vk.com/sashko_khr" target="_blank")
+                            svg.social__svg.social__svg_fill
+                                use(xlink:href="img/sprite.svg#icon-vk")
+                    li.social__item
+                        a.social__link(href="https://github.com/KhromovAlex" target="_blank")
+                            svg.social__svg.social__svg_fill
+                                use(xlink:href="img/sprite.svg#icon-github")
+                    li.social__item
+                        a.social__link(href="https://www.instagram.com/" target="_blank")
+                            svg.social__svg.social__svg_fill
+                                use(xlink:href="img/sprite.svg#icon-in")
+        button.header__nav.hamburger-header#hamburger-header(type="button")
+            span.hamburger-header__line
+            span.hamburger-header__line
+            span.hamburger-header__line
+    .header__center
+        .header__avatar
+            .avatar
+                img.avatar__img(src="img/welcome/ava.jpg" alt="avatar")
+        .header__user-name Александр Хромов
+        .header__desc Личный сайт веб разработчика
+    .header__bottom
+        .header__arrow
+            a.arrow__link(href='#first-section')
+                svg.arrow__svg
+                    use(xlink:href="img/sprite.svg#icon-arrow_down")

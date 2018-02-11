@@ -1,0 +1,27 @@
+{
+  "api": {
+    "server": "http://localhost:80"
+  },
+  "db": {
+    "host": "localhost",
+    "port": "27017",
+    "name": "myapi",
+    "user": "",
+    "password": ""
+  },
+  "mail": {
+    "subject": "Сообщение с сайта-портфолио",
+    "smtp": {
+      "host": "smtp.mail.ru",
+      "port": 465,
+      "secure": true,
+      "auth": {
+        "user": "4-09@bk.ru",
+        "pass": "pwnz4919564"
+      }
+    }
+  },
+  "upload": {
+    "images" : "public/upload"
+  }
+}

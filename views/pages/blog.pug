@@ -1,0 +1,61 @@
+extends ../layout
+
+block vars
+    - var title = "Блог";
+
+
+block header
+    header.header
+        .parallax-scroll
+            .parallax-scroll__layer
+                img.parallax-scroll__img(src="img/header/bg_for_parallax.jpg")
+        .header__top
+            .header__social
+                .social
+                    ul.social__list
+                        li.social__item
+                            a.social__link(href="https://vk.com/sashko_khr" target="_blank")
+                                svg.social__svg.social__svg_fill
+                                    use(xlink:href="img/sprite.svg#icon-vk")
+                        li.social__item
+                            a.social__link(href="https://github.com/KhromovAlex" target="_blank")
+                                svg.social__svg.social__svg_fill
+                                    use(xlink:href="img/sprite.svg#icon-github")
+                        li.social__item
+                            a.social__link(href="https://www.instagram.com/" target="_blank")
+                                svg.social__svg.social__svg_fill
+                                    use(xlink:href="img/sprite.svg#icon-in")
+            button.header__nav.hamburger-header#hamburger-header(type="button")
+                span.hamburger-header__line
+                span.hamburger-header__line
+                span.hamburger-header__line                                 
+        .header__center.header__center_blog
+            .header__avatar
+                .avatar
+                    img.avatar__img(src="img/welcome/ava.jpg" alt="avatar")
+            .header__title-wrap
+                h1.title.title_header Блог
+            .header__desc Статьи, которые я написал
+block content
+    .blog
+        aside.nav-blog
+            button.nav-blog__button#nav-blog__button
+            ul.nav-blog__list
+                if (articles)
+                    each val, index in articles
+                        li.nav-blog__item
+                            a(href=`#article-${index}`).nav-blog__link.nav-blog__link_active= val.title
+        section.blog-content            
+            if (articles)
+                ul.article-wrap
+                    each val, index in articles
+                        li.article-blog(id=`article-${index}`)
+                            h3.article-blog__title= val.title
+                            -
+                                var date= new Date(val.date).toLocaleDateString('ru', {
+                                year: 'numeric',
+                                month: '2-digit',
+                                day: '2-digit'
+                                })
+                            .article-blog__time= date
+                            .article-blog__text= val.text
